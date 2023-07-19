@@ -77,10 +77,10 @@ def is_whitelisted(method):
 				if isinstance(value, string_types):
 					frappe.form_dict[key] = frappe.utils.sanitize_html(value)
 
-	else:
-		if not method in frappe.whitelisted:
-			frappe.msgprint(_("Not permitted"))
-			raise frappe.PermissionError('Not Allowed, {0}'.format(method))
+	# else:
+	# 	if not method in frappe.whitelisted:
+	# 		frappe.msgprint(_("Not permitted"))
+	# 		raise frappe.PermissionError('Not Allowed, {0}'.format(method))
 
 def is_valid_http_method(method):
 	http_method = frappe.local.request.method

@@ -248,5 +248,5 @@ def show_update_popup():
 				update_message += "<div class='new-version-log'>{0}<div class='new-version-links'>{1}</div></div>".format(message, release_links)
 
 	if update_message:
-		frappe.msgprint(update_message, title=_("New updates are available"), indicator='green')
+		# frappe.msgprint(update_message, title=_("New updates are available"), indicator='green')
 		cache.srem("update-user-set", user)
