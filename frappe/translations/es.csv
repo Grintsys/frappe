@@ -1086,6 +1086,7 @@ apps/frappe/frappe/integrations/doctype/dropbox_settings/dropbox_settings.py,Ple
 DocType: Print Format,Print Format Type,Tipo de formato de impresión
 DocType: Newsletter,A Lead with this Email Address should exist,Debe existir una iniciativa con esta dirección de correo electrónico
 apps/frappe/frappe/public/js/frappe/ui/toolbar/about.js,Open Source Applications for the Web,Aplicaciones de código abierto para la web
+apps/frappe/frappe/public/js/frappe/ui/toolbar/about.js,Information of system,Información del sistema
 DocType: Event,Call,Llamada
 apps/frappe/frappe/website/doctype/website_theme/website_theme.js,"Add the name of a ""Google Web Font"" e.g. ""Open Sans""","Añadir el nombre de ""Google Web Fonts"" por ejemplo ""Open Sans"""
 apps/frappe/frappe/public/js/frappe/request.js,Request Timed Out,Tiempo de espera agotado
