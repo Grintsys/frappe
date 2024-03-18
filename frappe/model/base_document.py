@@ -168,7 +168,8 @@ class BaseDocument(object):
 			self.__dict__[key].append(value)
 
 			# reference parent document
-			value.parent_doc = self
+			if hasattr(value, 'parent_doc'):
+				value.parent_doc = self
 
 			return value
 		else:
@@ -200,7 +201,7 @@ class BaseDocument(object):
 		if not isinstance(value, BaseDocument):
 			value["doctype"] = self.get_table_field_doctype(key)
 			if not value["doctype"]:
-				raise AttributeError(key)
+				return value
 
 			value = get_controller(value["doctype"])(value)
 			value.init_valid_columns()
@@ -317,7 +318,12 @@ class BaseDocument(object):
 		return frappe.as_json(self.as_dict())
 
 	def get_table_field_doctype(self, fieldname):
-		return self.meta.get_field(fieldname).options
+		try:
+			field = self.meta.get_field(fieldname)
+			options = field.options
+		except AttributeError:
+			options = []
+		return options
 
 	def get_parentfield_of_doctype(self, doctype):
 		fieldname = [df.fieldname for df in self.meta.get_table_fields() if df.options==doctype]
